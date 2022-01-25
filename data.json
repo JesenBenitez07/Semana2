@@ -1,0 +1,52 @@
+[
+    {
+        "marca": "Toyota",
+        "color": "Negro",
+        "year": 2002
+    },
+    {
+        "marca": "BMW",
+        "color": "Blanco",
+        "year": 2006
+    },
+    {
+        "marca": "Nissan",
+        "color": "Negro",
+        "year": 2018
+    },
+    {
+        "marca": "Ford",
+        "color": "Verde",
+        "year": 2010
+    },
+    {
+        "marca": "Kia",
+        "color": "Azul",
+        "year": 2008
+    },
+    {
+        "marca": "Toyota",
+        "color": "Rojo",
+        "year": 2016
+    },
+    {
+        "marca": "Jaguar",
+        "color": "Verde",
+        "year": 2020
+    },
+    {
+        "marca": "Kia",
+        "color": "Negro",
+        "year": 2012
+    },
+    {
+        "marca": "Toyota",
+        "color": "Azul",
+        "year": 2014
+    },
+    {
+        "marca": "Toyota",
+        "color": "Negro",
+        "year": 2002
+    }
+]
