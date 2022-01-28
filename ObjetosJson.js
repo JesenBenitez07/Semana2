@@ -1,17 +1,53 @@
 const fs = require('fs')
-const { arrayBuffer } = require('stream/consumers')
+var vehiculos = JSON.parse( fs.readFileSync('data.json') )
 
-var vehiculos = JSON.parse (fs.readFileSync ('data.json'))
-console.log(vehiculos)
+//console.log(process.argv)
+let [,,parametro1,parametro2] = process.argv
+const accion = parametro1.split('=')[1]
+const datos = parametro2.split('=')[1].split(',')
+console.log(datos)
 
-for (let i=0;i<5; i++){
+//Recorrer un arreglo de la forma tradicional
+/*for(let i=0;i<5;i++){
     console.log(`Vehiculo numero ${i+1}:${vehiculos[i].marca}`)
+}*/
+
+//Recorrear arreglo usando la funcion foreach de tipo flecha
+function consultarVehiculo(){
+    vehiculos.forEach( item => console.log(item) );
+}
+//Agregar datos al arreglo
+
+function agregarVehiculos(item){
+    vehiculos.push(
+        //{'marca':'Kia','color':'gris','year':2022}
+        item
+        )
 }
 
-//vehiculos.forEach(item => console.log(item));
+var obtenerIndice=(item)=>vehiculos.findIndex((vehiculo)=>vehiculo.marca===item)
 
-console.log(vehiculos)
-vehiculos.push({marca: 'BMW', color: 'Blanco', year: 2006})
-console.log(vehiculos)
+function modificarVehiculos(itemABuscar,itemNuevo){
+    indice = obtenerIndice(itemABuscar)
+    vehiculos[indice] = itemNuevo
+}
 
+function eliminarVehiculo(itemAEliminar){
+    indice = obtenerIndice(itemAEliminar)
+    vehiculos.splice(indice,1)
+}
+
+switch(accion){
+    case 'insertar':
+        agregarVehiculos(datos);
+        break;
+}
+
+/*
+agregarVehiculos({'marca':'Prueba1','color':'verde','year':2000})
+modificarVehiculos('Jeep', {'marca':'Prueba2','color':'azul','year':2004})
+eliminarVehiculo('Toyota')
+//SALVAR ARCHIVO
+console.log(vehiculos)
 fs.writeFileSync('data.json',JSON.stringify(vehiculos))
+*/
